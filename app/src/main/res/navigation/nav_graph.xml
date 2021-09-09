@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/pokeListFragment">
+
+    <fragment
+        android:id="@+id/pokeListFragment"
+        android:name="com.duv.pockedex.view.list.PokeListFragment"
+        android:label="PokeListFragment"
+        tools:layout="@layout/fragment_poke_list">
+
+        <action
+            android:id="@+id/action_fragmentPokeList_to_fragmentPokeDetail"
+            app:destination="@id/pokeDetailFragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/pokeDetailFragment"
+        android:name="com.duv.pockedex.view.detail.PokeDetailFragment"
+        android:label="PokeDetailFragment"
+        tools:layout="@layout/fragment_poke_detail">
+
+        <action
+            android:id="@+id/action_fragmentPokeDatail_to_fragmentPokeList"
+            app:destination="@id/pokeListFragment"/>
+
+    </fragment>
+
+
+</navigation>

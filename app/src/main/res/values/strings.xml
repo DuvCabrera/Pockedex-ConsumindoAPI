@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PockeDex</string>
+    <string name="search_hint">Buscar</string>
+    <string name="pokemon_photo_description">Foto do Pokemon</string>
+</resources>
