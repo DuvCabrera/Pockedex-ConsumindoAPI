@@ -1,23 +1,23 @@
 package com.duv.pockedex.model
 
 data class PokeModel(
-    val id: Int,
-    val name: String,
-    val base_experience: Int,
-    val height: Int,
-    val is_default: Boolean,
-    val order: Int,
-    val weight: Int,
     val abilities: List<PokemonAbility>,
+    val base_experience: Int,
     val forms: List<NamedAPIResource>,
     val game_indices: List<VersionGameIndex>,
+    val height: Int,
     val held_items: List<PokemonHeldItem>,
+    val id: Int,
+    val is_default: Boolean,
     val location_area_encounter: String,
     val moves: List<PokemonMove>,
-    val sprites: PokemonSprites,
+    val name: String,
+    val order: Int,
     val species: NamedAPIResource,
+    val sprites: PokemonSprites,
     val stats: List<PokemonStat>,
-    val types: List<PokemonType>
+    val types: List<PokemonType>,
+    val weight: Int
 )
 
 data class PokemonType (
