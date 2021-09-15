@@ -23,7 +23,7 @@
         tools:layout="@layout/fragment_poke_detail">
 
         <action
-            android:id="@+id/action_fragmentPokeDatail_to_fragmentPokeList"
+            android:id="@+id/action_fragmentPokeDetail_to_fragmentPokeList"
             app:destination="@id/pokeListFragment"/>
 
     </fragment>

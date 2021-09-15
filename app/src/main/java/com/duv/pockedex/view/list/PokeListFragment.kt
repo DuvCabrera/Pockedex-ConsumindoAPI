@@ -34,7 +34,7 @@ class PokeListFragment: Fragment(), PokeListView, PokeClickItemListener{
 
     }
 
-    override fun initPokeList(list: List<PokeListModel>?) {
+    override fun initPokeList(list: List<PokeListModel>) {
         val adapter = PokeListAdapter(list, this)
         rv_pokeList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rv_pokeList.adapter = adapter

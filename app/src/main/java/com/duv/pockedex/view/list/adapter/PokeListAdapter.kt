@@ -9,7 +9,7 @@ import com.duv.pockedex.model.PokeListModel
 import com.duv.pockedex.view.list.PokeClickItemListener
 import kotlinx.android.synthetic.main.poke_list_item.view.*
 
-class PokeListAdapter(private val data: List<PokeListModel>?, private val listener: PokeClickItemListener) :RecyclerView.Adapter<PokeListAdapter.ViewHolder>() {
+class PokeListAdapter(private val data: List<PokeListModel>, private val listener: PokeClickItemListener) :RecyclerView.Adapter<PokeListAdapter.ViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -17,10 +17,10 @@ class PokeListAdapter(private val data: List<PokeListModel>?, private val listen
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindItem(data!![position])
+        holder.bindItem(data[position])
     }
 
-    override fun getItemCount(): Int = data!!.size
+    override fun getItemCount(): Int = data.size
 
     inner class ViewHolder (itemView: View): RecyclerView.ViewHolder(itemView){
         fun bindItem( item: PokeListModel?) {
