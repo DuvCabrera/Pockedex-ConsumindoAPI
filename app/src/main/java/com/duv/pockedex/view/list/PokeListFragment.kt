@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.duv.pockedex.POKE_NAME
 import com.duv.pockedex.R
 import com.duv.pockedex.data.PokeRepository
-import com.duv.pockedex.model.PokeListModel
+import com.duv.pockedex.model.PokeList
 import com.duv.pockedex.view.list.adapter.PokeListAdapter
 import kotlinx.android.synthetic.main.fragment_poke_list.*
 
@@ -34,7 +34,7 @@ class PokeListFragment: Fragment(), PokeListView, PokeClickItemListener{
 
     }
 
-    override fun initPokeList(list: List<PokeListModel>) {
+    override fun initPokeList(list: List<PokeList>) {
         val adapter = PokeListAdapter(list, this)
         rv_pokeList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         rv_pokeList.adapter = adapter

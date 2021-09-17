@@ -1,7 +1,8 @@
 package com.duv.pockedex.view.list
 
-import com.duv.pockedex.model.PokeListModel
+import com.duv.pockedex.model.PokeList
+
 
 interface PokeListView {
-    fun initPokeList(list: List<PokeListModel>) {}
+    fun initPokeList(list: List<PokeList>) {}
 }

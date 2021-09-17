@@ -10,8 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="4dp"
         card_view:cardCornerRadius="4dp"
         card_view:layout_constraintLeft_toLeftOf="parent"
         card_view:layout_constraintTop_toTopOf="parent">
@@ -21,12 +19,14 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/iv_pokePhoto"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:id="@+id/iv_pokeball"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="4dp"
                 android:contentDescription="@string/pokemon_photo_description"
                 card_view:layout_constraintStart_toStartOf="parent"
-                card_view:layout_constraintTop_toTopOf="parent" />
+                card_view:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/pokeball1600"/>
 
             <TextView
                 android:id="@+id/tv_pokeName"
@@ -35,18 +35,8 @@
                 android:textSize="24sp"
                 android:textColor="@color/black"
                 android:layout_margin="8dp"
-                card_view:layout_constraintStart_toEndOf="@id/iv_pokePhoto"
+                card_view:layout_constraintStart_toEndOf="@id/iv_pokeball"
                 card_view:layout_constraintTop_toTopOf="parent"/>
-
-            <TextView
-                android:id="@+id/tv_pokeType"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:textSize="20sp"
-                android:textColor="@color/black"
-                card_view:layout_constraintStart_toEndOf="@id/iv_pokePhoto"
-                card_view:layout_constraintTop_toBottomOf="@id/tv_pokeName" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
