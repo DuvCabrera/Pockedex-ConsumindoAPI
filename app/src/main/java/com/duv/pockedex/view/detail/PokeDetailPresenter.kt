@@ -6,6 +6,7 @@ import android.util.Log
 import com.duv.pockedex.BASE_URL
 import com.duv.pockedex.data.PokeRepository
 import com.duv.pockedex.model.PokeModel
+import com.duv.pockedex.view.list.PokeDataBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,7 +16,11 @@ import java.net.URL
 import kotlin.concurrent.thread
 
 
-class PokeDetailPresenter( private val view: PokeDetailView, private val pokeRepository: PokeRepository) {
+class PokeDetailPresenter(
+    private val view: PokeDetailView,
+    private val pokeRepository: PokeRepository,
+    private val binding: PokeDataBinding
+) {
 
     private val callback = object : Callback<PokeModel> {
         override fun onResponse(
@@ -24,7 +29,7 @@ class PokeDetailPresenter( private val view: PokeDetailView, private val pokeRep
         ) {
             if (response.code() == 200) {
                 val pokeResponse = response.body()!!
-                Log.e(pokeResponse.toString(),"")
+                Log.e(pokeResponse.name,"dado recebido")
                 view.initPokemon(pokeResponse)
             } else {
                 Log.e("Lista não Recebida", "Aconteceu algo errado")
@@ -40,7 +45,7 @@ class PokeDetailPresenter( private val view: PokeDetailView, private val pokeRep
         pokeRepository.getPokemonApi(BASE_URL, callback, name)
     }
 
-    fun getPokeImage(url:String?):Bitmap?{
+    fun getPokeImage(url:String?){
 
         thread {
             run() {
@@ -52,6 +57,8 @@ class PokeDetailPresenter( private val view: PokeDetailView, private val pokeRep
                     val isInputStream = connection.getInputStream()
                     val bis = BufferedInputStream(isInputStream)
                     img = BitmapFactory.decodeStream(bis)
+                    //chamar interface que receberá o bitmap e fara o tratamento no fragment
+                    binding.bindingPoke(img)
                     bis.close()
                     isInputStream.close()
                 }catch (e: IOException){

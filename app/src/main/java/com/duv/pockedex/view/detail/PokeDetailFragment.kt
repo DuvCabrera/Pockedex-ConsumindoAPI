@@ -1,27 +1,21 @@
 package com.duv.pockedex.view.detail
 
+import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.duv.pockedex.POKE_NAME
 import com.duv.pockedex.R
 import com.duv.pockedex.data.PokeRepository
-import com.duv.pockedex.model.PokeListModel
 import com.duv.pockedex.model.PokeModel
-import com.duv.pockedex.view.list.adapter.PokeListAdapter
-import com.duv.pockedex.view.list.PokeClickItemListener
-import com.duv.pockedex.view.list.PokeListPresenter
-import com.duv.pockedex.view.list.PokeListView
+import com.duv.pockedex.view.list.PokeDataBinding
 import kotlinx.android.synthetic.main.fragment_poke_detail.*
-import kotlinx.android.synthetic.main.fragment_poke_list.*
 
-class PokeDetailFragment : Fragment(), PokeDetailView {
+class PokeDetailFragment : Fragment(), PokeDetailView , PokeDataBinding{
 
-    private val presenter = PokeDetailPresenter(this, PokeRepository())
+    private val presenter = PokeDetailPresenter(this, PokeRepository(), this)
     private var pokeName: String? = ""
 
     override fun onCreateView(
@@ -44,7 +38,7 @@ class PokeDetailFragment : Fragment(), PokeDetailView {
     }
 
     override fun initPokemon(pokemon: PokeModel) {
-        iv_pokePhoto.setImageBitmap(presenter.getPokeImage(pokemon.sprites.front_default))
+        presenter.getPokeImage(pokemon.sprites.front_default)
         tv_pokeName.text = pokemon.name
         tv_pokeHeight.text = pokemon.height.toString()
         tv_pokeWeight.text = pokemon.weight.toString()
@@ -62,6 +56,9 @@ class PokeDetailFragment : Fragment(), PokeDetailView {
             }
             tv_pokeStatus.text = pokeStats
         }
+    }
 
+    override fun bindingPoke(bitmap: Bitmap?) {
+        iv_pokePhoto.setImageBitmap(bitmap)
     }
 }
